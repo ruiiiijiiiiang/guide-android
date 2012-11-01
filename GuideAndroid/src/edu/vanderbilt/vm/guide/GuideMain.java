@@ -25,12 +25,6 @@ public class GuideMain extends Activity {
 		setContentView(R.layout.activity_guide_main);
 		setupActionBar();
 		try {
-			GlobalState.initPlaceList(this);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
 			List<Place> placeList = GlobalState.getPlaceList(this);
 			GlobalState.getUserAgenda().add(placeList.get(1));
 		} catch (IOException e) {
@@ -75,8 +69,8 @@ public class GuideMain extends Activity {
 		tab = ab.newTab()
 				.setText("Places")
 				.setTabListener(
-						new FragmentTabListener<PlaceMainFragment>(this,
-								"places", PlaceMainFragment.class));
+						new FragmentTabListener<PlaceTabFragment>(this,
+								"places", PlaceTabFragment.class));
 		ab.addTab(tab, 2, placesSelected);
 
 		tab = ab.newTab()
